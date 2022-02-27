@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/DirectorioFuncionarios/Images/favicon.png" rel="icon" type="image/png" />
+    <title>B&#250;squeda de funcionarios - Observatorio Nacional SP</title>
+    <link href="/DirectorioFuncionarios/Content/SiteObservatorio.css" rel="stylesheet" type="text/css" />
+    <link href="/DirectorioFuncionarios/Content/StylesObservatorio.css" rel="stylesheet" type="text/css" />
+    <link href="/DirectorioFuncionarios/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/DirectorioFuncionarios/Content/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <script src="/DirectorioFuncionarios/bundles/modernizr?v=w9fZKPSiHtN4N4FRqV7jn-3kGoQY5hHpkwFv5TfMrus1"></script>
+
+    <link href="/DirectorioFuncionarios/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    
+    
+
+    <link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body style="background-color: #33587d">
+    <div class="page content">
+        <div class="header">
+            <div class="wrapper">
+                <div class="left">
+                    <a href="#" class="" alt=""><img src="/DirectorioFuncionarios/Images/logo.png" alt="Logo Observatorio" width="960" height="100" class=""></a>
+                </div>
+                <div class="right"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="wrapper">
+                <ul class="menu">
+                    <li class=""><a class="active" href="http://observatorioserviciospublicos.gob.do/" alt="">Inicio</a></li>
+                    <li class=""><a class="" href="http://observatorioserviciospublicos.gob.do/quienes_somos.html#quienes-somos" alt="">Quiénes Somos</a></li>
+                    <li class=""><a class="" href="http://observatorioserviciospublicos.gob.do/vice_ministerio.html#vice_ministerio" alt="">Vice Ministerio</a></li>
+                    <li class=""><a class="" href="http://observatorioserviciospublicos.gob.do/" alt="">Directorios</a></li>
+                    <li class=""><a class="" href="http://observatorioserviciospublicos.gob.do/foro_ciudadano.html#foro-ciudadano" alt="">Foro Ciudadano</a></li>
+                    <li class=""><a class="" href="http://observatorioserviciospublicos.gob.do/noticias.html#noticias" alt="">Noticias</a></li>
+                    <li class=""><a class="" href="http://observatorioserviciospublicos.gob.do/contacto.html#contacto" alt="">Contacto</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="row">
+                <div class="col-md-12">
+                    
+
+
+<script src="/DirectorioFuncionarios/Scripts/jquery-2.2.2.js"></script>
+<script src="/DirectorioFuncionarios/Scripts/Autocomplete.js"></script>
+
+<script src="/DirectorioFuncionarios/Scripts/App.js"></script>
+
+
+<h2>&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;Consulta de funcionarios</h2>
+<hr />
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-search"></span>&nbsp;B&uacute;squeda</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+<form action="/DirectorioFuncionarios/Consulta/MyAction" autocomplete="off" method="get">                        <div class="form-horizontal">
+                            <div class="form-group">
+                                
+                                <label for="Busqueda" class="col-md-3 col-sm-2 control-label">Buscar</label>
+                                <div class="col-md-9 col-sm-10">
+                                    <input class="form-control" data-toggle="tooltip" id="searchString" name="searchString" placeholder="Información a buscar" title="Puede buscar por Nombres, Apellidos, Categoría, Cargo o Area" type="text" value="" />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="Estado" class="col-md-3 col-sm-2 control-label">Estado</label>
+                                <div class="col-md-9 col-sm-10">
+<select class="form-control" id="searchEstado" name="searchEstado"><option value="">Seleccione un estado</option>
+<option selected="selected">Activo</option>
+<option>Inactivo</option>
+</select>                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-3 col-md-9 col-sm-offset-2 col-sm-10">
+                                    <input type="submit" name="submitButton" class="btn btn-default" value="Buscar" />
+                                    <input type="submit" name="submitButton" class="btn btn-default" value="Exportar" />
+                                </div>
+                            </div>
+                        </div>
+</form>                </div>
+
+            </div>
+
+
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="http://observatorioserviciospublicos.gob.do/reclamos.html#reclamos" target="_blank"><img alt="LogoReclamos" class="img-responsive" src="/DirectorioFuncionarios/Images/reclamos.png" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-th"></span>&nbsp;Listado de Funcionarios</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Informaci&oacute;n del funcionario</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>
+                                <img src="/DirectorioFuncionarios/Images/PhotoFiles/Foto_11_3_2021_presidente.png" class="img-rounded" alt="Foto Funcionario" style="width:96px;height:96px;" />
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td style="width:125px;"><strong>Instituci&oacute;n:</strong></td>
+                                    <td>Fondo Patrimonial de las Empresas Reformadas</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Funcionario:</strong></td>
+                                    <td>
+                                        <a class="modal-link" href="/DirectorioFuncionarios/Consulta/InformacionFuncionario?funcionarioId=118" title="Ver información">Jos&#233; E. Florentino Rodr&#237;guez</a>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Cargo:</strong></td>
+                                    <td>Presidente</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Area:</strong></td>
+                                    <td>Presidencia</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Decreto:</strong></td>
+                                    <td>538-20</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Fecha ingreso:</strong></td>
+                                    <td>06/10/2020</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Estado:</strong></td>
+                                    <td>Activo
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <img src="/DirectorioFuncionarios/Images/PhotoFiles/Foto_23_2_2021_jaime.JPG" class="img-rounded" alt="Foto Funcionario" style="width:96px;height:96px;" />
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td style="width:125px;"><strong>Instituci&oacute;n:</strong></td>
+                                    <td>Consejo Nacional de Drogas</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Funcionario:</strong></td>
+                                    <td>
+                                        <a class="modal-link" href="/DirectorioFuncionarios/Consulta/InformacionFuncionario?funcionarioId=517" title="Ver información">Jaime  Marte Mart&#237;nez</a>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Cargo:</strong></td>
+                                    <td>Presidente</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Area:</strong></td>
+                                    <td>Despacho</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Decreto:</strong></td>
+                                    <td>739-20</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Fecha ingreso:</strong></td>
+                                    <td>29/12/2020</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Estado:</strong></td>
+                                    <td>Activo
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <img src="/DirectorioFuncionarios/Images/PhotoFiles/Foto_11_1_2021_Luis-abinader.jpg" class="img-rounded" alt="Foto Funcionario" style="width:96px;height:96px;" />
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td style="width:125px;"><strong>Instituci&oacute;n:</strong></td>
+                                    <td>Presidencia de la Rep&#250;blica</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Funcionario:</strong></td>
+                                    <td>
+                                        <a class="modal-link" href="/DirectorioFuncionarios/Consulta/InformacionFuncionario?funcionarioId=18965" title="Ver información">Lu&#237;s  Abinader Corona</a>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Cargo:</strong></td>
+                                    <td>Presidente</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Area:</strong></td>
+                                    <td>Presidencia de la Rep&#250;blica </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Decreto:</strong></td>
+                                    <td>Por elecci&#243;n </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Fecha ingreso:</strong></td>
+                                    <td>16/08/2020</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Estado:</strong></td>
+                                    <td>Activo
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <img src="/DirectorioFuncionarios/Images/PhotoFiles/Foto_27_10_2021_francisco.png" class="img-rounded" alt="Foto Funcionario" style="width:96px;height:96px;" />
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td style="width:125px;"><strong>Instituci&oacute;n:</strong></td>
+                                    <td>Instituto de Desarrollo y Cr&#233;dito Cooperativo</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Funcionario:</strong></td>
+                                    <td>
+                                        <a class="modal-link" href="/DirectorioFuncionarios/Consulta/InformacionFuncionario?funcionarioId=19030" title="Ver información">Franco De los santos</a>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Cargo:</strong></td>
+                                    <td>Presidente</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Area:</strong></td>
+                                    <td>Despacho</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Decreto:</strong></td>
+                                    <td>339-20</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Fecha ingreso:</strong></td>
+                                    <td>16/08/2020</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Estado:</strong></td>
+                                    <td>Activo
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <img src="/DirectorioFuncionarios/Images/PhotoFiles/Foto_4_2_2021_nelson-arroyo.jpg" class="img-rounded" alt="Foto Funcionario" style="width:96px;height:96px;" />
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td style="width:125px;"><strong>Instituci&oacute;n:</strong></td>
+                                    <td>Instituto Dominicano de las Telecomunicaciones</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Funcionario:</strong></td>
+                                    <td>
+                                        <a class="modal-link" href="/DirectorioFuncionarios/Consulta/InformacionFuncionario?funcionarioId=19035" title="Ver información">Nelson de Jes&#250;s Arrollo Perdomo</a>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Cargo:</strong></td>
+                                    <td>Presidente</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Area:</strong></td>
+                                    <td>Consejo Directivo</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Decreto:</strong></td>
+                                    <td>329-20</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Fecha ingreso:</strong></td>
+                                    <td>16/08/2020</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:125px;"><strong>Estado:</strong></td>
+                                    <td>Activo
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        
+                        <div class="pagination-container"><ul class="pagination"><li class="active"><span>1</span></li><li><a href="/DirectorioFuncionarios/consulta?page=2&amp;searchEstado=Activo">2</a></li><li><a href="/DirectorioFuncionarios/consulta?page=3&amp;searchEstado=Activo">3</a></li><li><a href="/DirectorioFuncionarios/consulta?page=4&amp;searchEstado=Activo">4</a></li><li><a href="/DirectorioFuncionarios/consulta?page=5&amp;searchEstado=Activo">5</a></li><li><a href="/DirectorioFuncionarios/consulta?page=6&amp;searchEstado=Activo">6</a></li><li><a href="/DirectorioFuncionarios/consulta?page=7&amp;searchEstado=Activo">7</a></li><li><a href="/DirectorioFuncionarios/consulta?page=8&amp;searchEstado=Activo">8</a></li><li><a href="/DirectorioFuncionarios/consulta?page=9&amp;searchEstado=Activo">9</a></li><li><a href="/DirectorioFuncionarios/consulta?page=10&amp;searchEstado=Activo">10</a></li><li class="disabled PagedList-ellipses"><a>&#8230;</a></li><li class="PagedList-skipToNext"><a href="/DirectorioFuncionarios/consulta?page=2&amp;searchEstado=Activo" rel="next">»</a></li><li class="PagedList-skipToLast"><a href="/DirectorioFuncionarios/consulta?page=1263&amp;searchEstado=Activo">»»</a></li></ul></div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Información del Funcionario -->
+<div class="modal fade" id="ModalFuncionario" tabindex="-1" role="dialog" aria-labelledby="ModalFuncionarioLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!-- Fin del Modal Información del Funcionario -->
+
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <script src="/DirectorioFuncionarios/bundles/jquery?v=z3Jh31_2me8o3TRyC9_CTiIs8GhxtEs3tEHBoBg4I4o1"></script>
+
+    <script src="/DirectorioFuncionarios/bundles/bootstrap?v=jKtUG5WkfSaipeuWx65DSf6npHqGMIqI3gkJ4gWFwfA1"></script>
+
+    <script src="/DirectorioFuncionarios/Scripts/moment.js"></script>
+    <script src="/DirectorioFuncionarios/Scripts/bootstrap-datetimepicker.min.js"></script>
+    
+    <script>
+        $(function () {
+            var result = [];
+            var resultInst = [];
+
+            // Activate the tooltip efect
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Initialize modal dialog
+            // Attach modal-container bootstrap attributes to links with .modal-link class
+            // When a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+            $('body').on('click', '.modal-link', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#ModalFuncionario');
+                $(this).attr('data-toggle', 'modal');
+            });
+
+            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+            $('body').on('click', '.modal-close-btn', function () {
+                $('#ModalFuncionario').modal('hide');
+            });
+
+            // Clear modal cache, so that new content can be loaded
+            $('#ModalFuncionario').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+
+            let path = getPathName();
+
+            $.ajax({
+                method: 'GET',
+                url: `${path}/Consulta/GetFuncionarios`
+            }).done((data) => {
+                for (var i in data)
+                    result.push(data[i].name);
+
+                autocomplete(document.getElementById("searchString"), result);
+            });
+
+
+           /* $.ajax({
+                method: 'GET',
+                url: `${path}/Consulta/GetOrganismos`
+            }).done((data) => {
+                for (var o in data)
+                    resultInst.push(data[o].name);
+
+                autocomplete(document.getElementById("searchInstitucion"), resultInst);
+            });*/
+
+        });
+    </script>
+
+</body>
+</html>
