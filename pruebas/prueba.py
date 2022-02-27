@@ -1,5 +1,5 @@
 import urllib.request
-#abrimos un archivo 
+#abrimos guardamos un archivos html en nuestra maquina 
 web=open('pruebas/Funcionario.html','wb')
 #luego realizamos una consulta
 consulta=urllib.request.urlopen('https://map.gob.do/DirectorioFuncionarios/consulta/index')
