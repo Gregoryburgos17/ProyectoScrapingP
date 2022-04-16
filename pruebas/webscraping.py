@@ -11,7 +11,7 @@ options = webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
 options.add_argument('--disable-extensions')
 
-driver_path='C:\\Users\\Gregory Burgos\\Desktop\\chromedriver_win32\\chromedriver.exe'# ruta del driver
+driver_path='C:\\Users\\Gregory Burgos\\Desktop\\PythonScraping\\Proyecto1\\chromedriver_win32\\chromedriver.exe'# ruta del driver
 driver=webdriver.Chrome(driver_path, chrome_options=options)
 #Iniciar en la segunda pantalla para caso de cesardevoloper
 #driver.set_window_position(2000,0)
@@ -19,3 +19,5 @@ driver=webdriver.Chrome(driver_path, chrome_options=options)
 #time.sleep(1)
 
 driver.get('https://www.mercadolibre.com.do/')# para ejecutar una pagina web utilizamos drive.get
+WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input.nav-search-input'))).send_keys('celulares')
+WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'div.nav-icon-search'))).click()
